@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('alamat');
             // $table->unsignedBigInteger('id_kelas');
             // $table->foreign('id_kelas')->references('id')->on('kelas');
-            $table->foreignId('id_kelas')->constrained('kelas');
+            $table->foreignId('id_kelas')->constrained('kelas')->onDelete('cascade');
             $table->timestamps();
         });
     }

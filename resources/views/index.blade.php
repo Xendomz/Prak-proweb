@@ -12,7 +12,8 @@
     <tr>
         <td>{{ $loop->iteration }}</td>
         <td>{{ $user['name'] }}</td>
-        <td>{{ $user['address'] }}</td>
+        <td>{{ $user['address'] }}
+        </td>
     </tr>
     @endforeach
 </table>

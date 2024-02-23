@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route::get('/hello/{user}', [UserController::class, 'user']);
 Route::get('/test', function(){
     return view('test');
 });
+
+Route::resource('kelas',KelasController::class);
