@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,7 @@ Route::get('/test', function(){
 });
 
 Route::resource('kelas',KelasController::class);
+Route::get('/siswa/trash', [SiswaController::class, 'showTrash'])->name('siswa.trash');
+Route::get('/siswa/{id}/restore', [SiswaController::class, 'restore'])->name('siswa.restore');
+Route::get('/siswa/{id}/delete', [SiswaController::class, 'delete'])->name('siswa.delete');
+Route::resource('siswa',SiswaController::class);
