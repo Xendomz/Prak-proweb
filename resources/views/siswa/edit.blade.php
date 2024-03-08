@@ -8,15 +8,24 @@
         @csrf
         <div class="form-group">
             <label for="">NIK</label>
-            <input class="form-control" type="text" name="nik" value="{{ $siswa->NIK }}" required>
+            <input class="form-control" type="text" name="nik" value="{{ $siswa->NIK }}">
+            @error('nik')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Nama siswa</label>
-            <input class="form-control" type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}" required>
+            <input class="form-control" type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}">
+            @error('nama_siswa')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Alamat</label>
-            <input class="form-control" type="text" name="alamat" value="{{ $siswa->alamat }}" required>
+            <input class="form-control" type="text" name="alamat" value="{{ $siswa->alamat }}">
+            @error('alamat')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Nama Kelas</label>

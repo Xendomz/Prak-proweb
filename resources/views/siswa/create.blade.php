@@ -7,15 +7,24 @@
             @csrf
             <div class="form-group">
                 <label for="">NIK</label>
-                <input class="form-control" type="text" name="nik">
+                <input class="form-control" type="text" name="nik" value="{{ old('nik') }}">
+                @error('nik')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="">Nama siswa</label>
-                <input class="form-control" type="text" name="nama_siswa">
+                <input class="form-control" type="text" name="nama_siswa" value="{{ old('nama_siswa') }}">
+                @error('nama_siswa')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="">Alamat</label>
-                <input class="form-control" type="text" name="alamat">
+                <input class="form-control" type="text" name="alamat" value="{{ old('alamat') }}">
+                @error('alamat')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="">Nama Kelas</label>

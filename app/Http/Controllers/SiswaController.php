@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SiswaRequest;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
@@ -30,8 +31,20 @@ class SiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SiswaRequest $request)
     {
+        // $validate = $request->validate(
+        //     [
+        //         'nama_siswa' => 'required',
+        //         'nik' => 'required|numeric',
+        //         'alamat' => 'required',
+        //         'id_kelas' => 'required'
+        //     ],
+        //     [
+        //         'nama_siswa.required' => 'Nama Siswa tidak boleh kosong'
+        //     ]
+        // );
+
         Siswa::create([
             'nama_siswa' => $request->nama_siswa,
             'NIK' => $request->nik,
@@ -63,7 +76,7 @@ class SiswaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SiswaRequest $request, string $id)
     {
         $siswa = Siswa::findOrFail($id);
         $siswa->update([
