@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts')
+
+@section('content')
+<div class="container-fluid">
     <h1>Data Kelas</h1>
-    <a href="{{ route('siswa.index') }}">Kembali</a>
-    <table border="1">
+    <a class="btn btn-info text-white mb-2" href="{{ route('siswa.index') }}">Kembali</a>
+    <table class="table table-bordered">
         <tr>
             <td>No</td>
             <td>NIK </td>
@@ -26,11 +21,11 @@
                 <td>{{ $siswa->alamat }}</td>
                 <td>{{ $siswa->kelas->nama_kelas }}</td>
                 <td>
-                    <a href="{{ route('siswa.restore', $siswa->id) }}">Restore</a>
-                    <a href="{{ route('siswa.delete', $siswa->id) }}">Delete</a>
+                    <a class="btn btn-success" href="{{ route('siswa.restore', $siswa->id) }}">Restore</a>
+                    <a class="btn btn-danger" href="{{ route('siswa.delete', $siswa->id) }}">Delete</a>
                 </td>
             </tr>
         @endforeach
     </table>
-</body>
-</html>
+</div>
+@endsection

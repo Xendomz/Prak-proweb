@@ -28,10 +28,10 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/hello">hello</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('kelas.index') }}">Kelas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/test">test</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('siswa.index') }}">Siswa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -64,7 +64,7 @@
 
     @yield('content')
 
-    @include('footer')
+    {{-- @include('footer') --}}
 </body>
 
 </html>
