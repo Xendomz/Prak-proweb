@@ -4,8 +4,12 @@
     <div class="container-fluid">
         <h1>Data Kelas</h1>
         <div class="mb-3">
-            <a class="btn btn-success" href="{{ route('siswa.create') }}">Tambah Kelas+</a>
-            <a class="btn btn-warning" href="{{ route('siswa.trash') }}">History Data</a>
+            @if (auth()->user()->isAdmin)
+                <a class="btn btn-success" href="{{ route('siswa.create') }}">Tambah Kelas+</a>
+            @endif
+            @if (auth()->user()->isUser)
+                <a class="btn btn-warning" href="{{ route('siswa.trash') }}">History Data</a>
+            @endif
         </div>
         <table class="table table-bordered">
             <tr>

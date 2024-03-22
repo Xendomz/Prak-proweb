@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('guest')->group(function() {
+Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index']);
     Route::post('login', [LoginController::class, 'login'])->name('login');
     Route::get('register', [LoginController::class, 'registerPage'])->name('regpage');
@@ -32,15 +32,18 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/hello', [UserController::class, 'index']);
 Route::get('/hello/{user}', [UserController::class, 'user']);
-Route::get('/test', function(){
+Route::get('/test', function () {
     return view('test');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::resource('kelas',KelasController::class);
-    Route::get('/siswa/trash', [SiswaController::class, 'showTrash'])->name('siswa.trash');
-    Route::get('/siswa/{id}/restore', [SiswaController::class, 'restore'])->name('siswa.restore');
-    Route::get('/siswa/{id}/delete', [SiswaController::class, 'delete'])->name('siswa.delete');
-    Route::resource('siswa',SiswaController::class);
+    Route::middleware('role:Admin')->group(function () {
+        Route::resource('kelas', KelasController::class);
+    });
+    Route::middleware('role:User|Admin')->group(function () {
+        Route::get('/siswa/trash', [SiswaController::class, 'showTrash'])->name('siswa.trash');
+        Route::get('/siswa/{id}/restore', [SiswaController::class, 'restore'])->name('siswa.restore');
+        Route::get('/siswa/{id}/delete', [SiswaController::class, 'delete'])->name('siswa.delete');
+        Route::resource('siswa', SiswaController::class);
+    });
 });
-
